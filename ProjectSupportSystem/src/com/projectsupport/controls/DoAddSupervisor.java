@@ -50,12 +50,18 @@ public class DoAddSupervisor extends HttpServlet {
 		HttpSession session = request.getSession();
 		Connection conn = MyUtils.getStoredConnection(request);
 		User currentUser = MyUtils.getLoginedUser(session);
+		if(currentUser == null){
+			RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/login");
+	        dispatcher.forward(request, response);
+		}
 		int studentId = Integer.parseInt(currentUser.getUserName());
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String email = request.getParameter("email");
 		String mobileNo = request.getParameter("mobileNo");
-		String address = request.getParameter("address");
+		String addressLine1 = request.getParameter("addressLine1");
+		String addressLine2 = request.getParameter("addressLine2");
+		String city = request.getParameter("city");
 		InputStream inputstream = null;
 		OutputStream outputstream = null;
 		PrintWriter writer = response.getWriter();
@@ -82,13 +88,15 @@ public class DoAddSupervisor extends HttpServlet {
 			System.out.println("New file "+fileName+ " created at "+path);
 			LOGGER.log(Level.INFO,"File{0}being uploaded to {1}",new Object[]{fileName,path});
 			Supervisor newsupervisor = new Supervisor();
-			newsupervisor.setStudentId(studentId);
 			newsupervisor.setFirstName(firstName);
 			newsupervisor.setLastName(lastName);
 			newsupervisor.setEmail(email);
 			newsupervisor.setMobileNo(mobileNo);
-			newsupervisor.setAddress(address);
+			newsupervisor.setAddressLine1(addressLine1);
+			newsupervisor.setAddressLine2(addressLine2);
+			newsupervisor.setCity(city);
 			newsupervisor.setAgreementForm(fileName);
+			newsupervisor.setStudentId(studentId);
 			
 			String errorString = null;
 			if(errorString == null){

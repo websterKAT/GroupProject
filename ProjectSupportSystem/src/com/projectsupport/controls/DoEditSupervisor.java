@@ -57,7 +57,9 @@ public class DoEditSupervisor extends HttpServlet {
 		String lastName = request.getParameter("lastName");
 		String email = request.getParameter("email");
 		String mobileNo = request.getParameter("mobileNo");
-		String address = request.getParameter("address");
+		String addressLine1 = request.getParameter("addressLine1");
+		String addressLine2 = request.getParameter("addressLine2");
+		String city = request.getParameter("city");
 		InputStream inputstream = null;
 		OutputStream outputstream = null;
 		PrintWriter writer = response.getWriter();
@@ -89,7 +91,9 @@ public class DoEditSupervisor extends HttpServlet {
 			newsupervisor.setLastName(lastName);
 			newsupervisor.setEmail(email);
 			newsupervisor.setMobileNo(mobileNo);
-			newsupervisor.setAddress(address);
+			newsupervisor.setAddressLine1(addressLine1);
+			newsupervisor.setAddressLine2(addressLine2);
+			newsupervisor.setCity(city);
 			newsupervisor.setAgreementForm(fileName);
 			
 			String errorString = null;

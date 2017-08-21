@@ -6,7 +6,9 @@ public class Supervisor {
 	String lastName;
 	String email;
 	String mobileNo;
-	String address;
+	String addressLine1;
+	String addressLine2;
+	String city;
 	String agreementFormPath;
 	public int getStudentId() {
 		return studentId;
@@ -38,12 +40,25 @@ public class Supervisor {
 	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
-	public String getAddress() {
-		return address;
+	public String getAddressLine1() {
+		return addressLine1;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
 	}
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
+	}
+	public String getCity() {
+		return this.city;
+	}
+	public void setCity(String City) {
+		this.city = City;
+	}
+	
 	public String getAgreementForm() {
 		return agreementFormPath;
 	}

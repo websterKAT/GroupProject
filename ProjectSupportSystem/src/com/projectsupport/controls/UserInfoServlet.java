@@ -47,7 +47,7 @@ public class UserInfoServlet extends HttpServlet {
 			return;
 		}
 		else { 
-			request.setAttribute("user", loginedUser);
+			session.setAttribute("user", loginedUser);
 			if(loginedUser.getPosition().equals("student")){
 				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/bitstudent.jsp");
 				dispatcher.forward(request, response);
@@ -59,7 +59,7 @@ public class UserInfoServlet extends HttpServlet {
 				
 			}
 			else if(loginedUser.getPosition().equals("project")){
-				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/projectcoordinator.html");
+				RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/projectcoordinator.jsp");
 				dispatcher.forward(request, response);
 			}
 			else if(loginedUser.getPosition().equals("supervisor")){

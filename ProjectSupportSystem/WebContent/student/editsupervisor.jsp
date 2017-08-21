@@ -26,89 +26,107 @@
 
 </head>
 <body>
-<script>
-var app = angular.module('myApp', []);
+	<script>
+		var app = angular.module('myApp', []);
 
-app.controller('MyController',function($scope,$http){
-		//console.log('angular efef eff');
-      	$http({
-             method : 'GET',
-             url : 'http://localhost:8080/ProjectSupportSystem/DoViewSupervisor'
-             }).then(function successCallback(response) {
-                 $scope.supervisor = response.data;
-                 console.log('sucess');
-              },function errorCallback(response){
-                  console.log('error');
-              });
+		app
+				.controller(
+						'MyController',
+						function($scope, $http) {
+							//console.log('angular efef eff');
+							$http(
+									{
+										method : 'GET',
+										url : 'http://localhost:8080/ProjectSupportSystem/DoViewSupervisor'
+									}).then(function successCallback(response) {
+								$scope.supervisor = response.data;
+								console.log('sucess');
+							}, function errorCallback(response) {
+								console.log('error');
+							});
 
-        
-});
-
-</script>
+						});
+	</script>
 
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarStudent.jsp" />
-
+	<div id="loginedUser"> <p>You are logged in as: ${user.userName} </p></div>
 	<div class="changer" id="formload">
 		<div class="input-data" id="addsupervisor">
-		<form class="form-horizontal" method="POST" action="DoEditSupervisor"
+			<form class="form-horizontal" method="POST" action="DoEditSupervisor"
 				enctype="multipart/form-data">
 				<center>
 					<h4>Supervisor Details</h4>
 				</center>
 				<div ng-app="myApp" ng-controller="MyController">
-				<div class="form-group">
-					<label for="InputFirstName" class="col-sm-3 control-label">First
-						Name:</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" name="firstName"
-							value="{{supervisor.firstName}}">
+					<div class="form-group">
+						<label for="InputFirstName" class="col-sm-3 control-label">First
+							Name:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="firstName"
+								value="{{supervisor.firstName}}" required>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="InputLastName" class="col-sm-3 control-label">Last
-						Name:</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" name="lastName"
-							value="{{supervisor.lastName}}">
+					<div class="form-group">
+						<label for="InputLastName" class="col-sm-3 control-label">Last
+							Name:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="lastName"
+								value="{{supervisor.lastName}}" required>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="InputEmail" class="col-sm-3 control-label">E-Mail:</label>
-					<div class="col-sm-9">
-						<input type="email" class="form-control" name="email"
-							value="{{supervisor.email}}">
+					<div class="form-group">
+						<label for="InputEmail" class="col-sm-3 control-label">E-Mail:</label>
+						<div class="col-sm-9">
+							<input type="email" class="form-control" name="email"
+								value="{{supervisor.email}}" required>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="InputTeleNo" class="col-sm-3 control-label">Mobile:</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" name="mobileNo"
-							value="{{supervisor.mobileNo}}">
+					<div class="form-group">
+						<label for="InputTeleNo" class="col-sm-3 control-label">Mobile:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="mobileNo"
+								value="{{supervisor.mobileNo}}" ng-minlength=10 ng-maxlength=10 required>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="InputAddress" class="col-sm-3 control-label">Address:</label>
-					<div class="col-sm-9">
-						<textarea class="form-control" name="address" rows="3">
-						{{supervisor.address}}</textarea>
+					<div class="form-group">
+						<label for="InputTeleNo" class="col-sm-3 control-label">Address
+							Line 1:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="addressLine1"
+								value="{{supervisor.addressLine1}}" required>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="Inputform" class="col-sm-3 control-label">Submited
-						Form: </label>
-					<div class="col-sm-9">
-						<input type="file" name="agreementForm">
-						<p class="help-block col-sm-3">"*filename:
-							supervisorAgreementForm.pdf"</p>
+					<div class="form-group">
+						<label for="InputTeleNo" class="col-sm-3 control-label">Address
+							Line 2:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="addressLine2"
+								value="{{supervisor.addressLine2}}" required>
+						</div>
 					</div>
-				</div>
+					<div class="form-group">
+						<label for="InputTeleNo" class="col-sm-3 control-label">City:</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="city"
+								value="{{supervisor.city}}" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="Inputform" class="col-sm-3 control-label">Submited
+							Form: </label>
+						<div class="col-sm-9">
+							<input type="file" name="agreementForm" required>
+							<p class="help-block col-sm-3">"*filename:
+								supervisorAgreementForm.pdf"</p>
+						</div>
+					</div>
 
 				</div>
-				
+
 				<button type="submit" class="btn btn-default">Save</button>
 			</form>
-	
+
 		</div>
 
 

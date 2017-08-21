@@ -73,7 +73,7 @@ public class DoLoginServlet extends HttpServlet {
 			request.setAttribute("errorString", errorString);
 			request.setAttribute("user", currentUser);
 			
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login.jsp");
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/login?success=0");
 			dispatcher.forward(request, response);
 			
 		}

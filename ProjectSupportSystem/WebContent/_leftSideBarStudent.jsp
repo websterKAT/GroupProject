@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
       pageEncoding="UTF-8"%>
-
 </div class="left-side-bar">
 	<div class="container-fluid">
 		<div class="row">
@@ -49,15 +48,16 @@
 				<li class="nav-item"><a class="nav-link" href="">Progress
 						Report 10</a></li>
 				<li class="nav-item"><a class="nav-link" href=""
-					onclick="loadInterim()">Interim Report</a></li>
+					onclick="loadInterim(); return false;">Interim Report</a></li>
 				<li class="nav-item"><a class="nav-link" href=""
-					onclick="loadDissertation()">Dissertation</a></li>
+					onclick="loadDissertation(); return false;">Dissertation</a></li>
 				<li class="nav-item"><a class="nav-link" href=""
-					onclick="loadMedical()">Medical</a></li>
+					onclick="loadMedical(); return false;"> Medical</a></li>
 
 			</ul>
 			</nav>
 		</div>
 	</div>
+	
 
       

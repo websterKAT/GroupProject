@@ -29,20 +29,20 @@
 
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarStudent.jsp"/>
-
+	<div id="loginedUser"> <p>You are logged in as: ${user.userName} </p></div>
 	<div class="changer" id="formload">
-		<div class="input-data" id="addsupervisor">
+		<div class="input-data" id="addsupervisor" ng-app="">
 			<form class="form-horizontal" method="POST" action="DoAddSupervisor"
 				enctype="multipart/form-data">
 				<center>
 					<h4>Supervisor Details</h4>
 				</center>
 				<div class="form-group">
-					<label for="InputFirstName" class="col-sm-3 control-label">First
+					<label for="InputFirstName" class="col-sm-3 control-label" >First
 						Name:</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" name="firstName"
-							placeholder="First Name">
+							placeholder="First Name" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -50,7 +50,7 @@
 						Name:</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" name="lastName"
-							placeholder="Last Name">
+							placeholder="Last Name" required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -64,21 +64,35 @@
 					<label for="InputTeleNo" class="col-sm-3 control-label">Mobile:</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" name="mobileNo"
-							placeholder="Mobile No">
+							placeholder="Mobile No" ng-minlength=10 ng-maxlength=10>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="InputAddress" class="col-sm-3 control-label">Address:</label>
+					<label for="InputTeleNo" class="col-sm-3 control-label">Address Line 1:</label>
 					<div class="col-sm-9">
-						<textarea class="form-control" name="address" rows="3"
-							placeholder="No,Street Name,City Name"></textarea>
+						<input type="text" class="form-control" name="addressLine1"
+							placeholder="Address Line 1" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="InputTeleNo" class="col-sm-3 control-label">Address Line 2:</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name="addressLine2"
+							placeholder="Address Line 2" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="InputTeleNo" class="col-sm-3 control-label">City:</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name="city"
+							placeholder="City" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="Inputform" class="col-sm-3 control-label">Submit
 						Form: </label>
 					<div class="col-sm-9">
-						<input type="file" name="agreementForm">
+						<input type="file" name="agreementForm" required>
 						<p class="help-block col-sm-3">"*filename:
 							supervisorAgreementForm.pdf"</p>
 					</div>

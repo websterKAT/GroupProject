@@ -49,7 +49,7 @@ app.controller('MyController',function($scope,$http){
 	
 	<jsp:include page="../_header.jsp" />
 	<jsp:include page="../_leftSideBarStudent.jsp"/>
-
+	<div id="loginedUser"> <p>You are logged in as: ${user.userName} </p></div>
 	<div class="changer" id="formload">
 		<div ng-app="myApp" ng-controller="MyController" id="addsupervisor">
 
@@ -73,7 +73,9 @@ app.controller('MyController',function($scope,$http){
 							<th>LastName</th>
 							<th>E-mail</th>
 							<th>Mobile No</th>
-							<th>Address</th>
+							<th>AddressLine1</th>
+							<th>AddressLine2</th>
+							<th>City</th>
 							<th>Path</th>
 						</tr>
 					</thead>
@@ -83,7 +85,9 @@ app.controller('MyController',function($scope,$http){
 							<td>{{supervisor.lastName}}</td>
 							<td>{{supervisor.email}}</td>
 							<td>{{supervisor.mobileNo}}</td>
-							<td>{{supervisor.address}}</td>
+							<td>{{supervisor.addressLine1}}</td>
+							<td>{{supervisor.addressLine2}}</td>
+							<td>{{supervisor.city}}</td>
 							<td><a href="DownloadSupervisorFrom" target="_blank">
 									{{supervisor.agreementFormPath}} </a></td>
 						</tr>

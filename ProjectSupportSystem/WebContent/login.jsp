@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,6 +19,11 @@
 </head>
 <body>
 	<jsp:include page="_header.jsp" />
+	<c:if test="${param.success eq 0}">
+				<div class="alert alert-danger">
+					<strong> Wrong password or UserName !</strong>
+				</div>
+	</c:if>
 	<div class="wrapper">
 		<form class="form-signin" method="POST" action="doLogin">
 			<h2 class="form-signin-heading">Please login</h2>

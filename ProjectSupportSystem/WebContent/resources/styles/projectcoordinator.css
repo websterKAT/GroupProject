@@ -101,4 +101,13 @@ h3 {
 .left-side-bar{
 	position: absolute;
 }
+#loginedUser{
+	margin-left:1100px;
+	color:blue;
+}
+.panel-group {
+	margin-left:150px;
+	width:60%;
+	
+}
 
